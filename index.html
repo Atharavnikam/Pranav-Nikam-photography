@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pranav Nikam Photography</title>
 
- 
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
 
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,6 +21,7 @@
       scroll-behavior: smooth;
     }
 
+    /* HERO SECTION */
     .hero-section {
       background-color: #1f2029; 
       height: 50vh;
@@ -42,6 +41,8 @@
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      transition: max-height 0.4s ease-in-out;
+      overflow: hidden;
     }
 
     .nav-links a {
@@ -73,6 +74,23 @@
       font-size: 24px;
       color: white;
       animation: fadeInUp 2s ease-out;
+    }
+
+    /* HAMBURGER ICON */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
     }
 
     .main-content {
@@ -120,7 +138,6 @@
       box-shadow: 0 0 30px rgba(134, 107, 175, 0.6);
     }
 
-   
     #imageModal {
       display: none;  
       position: fixed;
@@ -149,7 +166,7 @@
       cursor: pointer;
       font-weight: bold;
     }
-    
+
     .dm-section {
       text-align: center;
       margin: 40px 0;
@@ -249,148 +266,114 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-/*  MOBILE VIEW  */
-@media (max-width: 768px) {
+    /* ================= MOBILE VIEW ================= */
+    @media (max-width: 768px) {
+      .hero-section {
+        height: auto;
+        padding: 90px 20px 50px;
+      }
 
-  .hero-section {
-    height: auto;
-    padding: 80px 20px 40px;
-  }
+      .hero-section h1 {
+        font-size: clamp(28px, 6vw, 40px);
+      }
 
-  .hero-section h1 {
-    font-size: 32px;
-  }
+      .dancing {
+        font-size: 18px;
+      }
 
-  .dancing {
-    font-size: 18px;
-  }
+      /* Hamburger Menu visible */
+      .hamburger {
+        display: block;
+      }
 
-  .nav-links {
-    position: static;
-    margin-bottom: 20px;
-    flex-direction: column;
-    gap: 10px;
-  }
+      /* Navigation hidden initially */
+      .nav-links {
+        max-height: 0;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 60px;
+        background: rgba(31, 32, 41, 0.95);
+        border-radius: 10px;
+        padding: 0 0;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-  .nav-links a {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
+      .nav-links.mobile-active {
+        max-height: 500px;
+        padding: 10px 0;
+      }
 
-  .main-content h2 {
-    font-size: 24px;
-  }
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 18px;
+      }
 
-  .gallery img {
-    max-width: 100%;
-  }
+      .main-content {
+        padding: 40px 15px;
+      }
 
-  footer .container {
-    flex-direction: column;
-    text-align: center;
-  }
+      .main-content h2 {
+        font-size: 22px;
+      }
 
-  .social-icons {
-    justify-items: center;
-  }
-}
+      .gallery {
+        flex-direction: column;
+        gap: 15px;
+      }
 
-/* ================= IMPROVED MOBILE VIEW ================= */
-@media (max-width: 768px) {
+      .gallery img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
 
-  /* Hero Section */
-  .hero-section {
-    height: auto;
-    padding: 90px 20px 50px;
-  }
+      #imageModal img {
+        max-width: 95%;
+        max-height: 80%;
+      }
 
-  .hero-section h1 {
-    font-size: clamp(28px, 6vw, 40px);
-  }
+      #imageModal span {
+        top: 20px;
+        right: 20px;
+        font-size: 28px;
+      }
 
-  .dancing {
-    font-size: 18px;
-  }
+      .dm-btn {
+        font-size: 16px;
+        padding: 12px 25px;
+      }
 
-  /* Navigation */
-  .nav-links {
-    position: static;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 25px;
-  }
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
 
-  .nav-links a {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-  }
+      footer .container > div {
+        width: 100%;
+      }
 
-  /* Section Headings */
-  .main-content {
-    padding: 40px 15px;
-  }
+      .social-icons {
+        justify-items: center;
+      }
 
-  .main-content h2 {
-    font-size: 22px;
-  }
-
-  /* Gallery */
-  .gallery {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .gallery img {
-    max-width: 100%;
-    border-radius: 10px;
-  }
-
-  /* Modal */
-  #imageModal img {
-    max-width: 95%;
-    max-height: 80%;
-  }
-
-  #imageModal span {
-    top: 20px;
-    right: 20px;
-    font-size: 28px;
-  }
-
-  /* Buttons */
-  .dm-btn {
-    font-size: 16px;
-    padding: 12px 25px;
-  }
-
-  /* Footer */
-  footer .container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  footer .container > div {
-    width: 100%;
-  }
-
-  .social-icons {
-    justify-items: center;
-  }
-
-  footer div[style] {
-    text-align: center !important;
-  }
-}
-
+      footer div[style] {
+        text-align: center !important;
+      }
+    }
 
   </style>
 </head>
 <body>
 
-  
   <div class="hero-section" data-aos="fade-in">
+    <!-- Hamburger Icon for Mobile -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="photo.html">Photo Design</a>
@@ -400,11 +383,12 @@
       <a href="invite.html">Invitation Cards</a>
       <a href="contact.html">Contact</a>
     </div>
+
     <h1>Pranav Nikam</h1>
     <div class="dancing">GRAPHIC & CENAMATIC DESIGNS</div>
   </div>
 
- 
+  <!-- MAIN CONTENT SECTIONS -->
   <div class="main-content" data-aos="fade-up">
     <h2>Logo Designs</h2>
     <div class="gallery">
@@ -414,7 +398,7 @@
     </div>
   </div>
 
- <div class="main-content" data-aos="fade-up">
+  <div class="main-content" data-aos="fade-up">
     <h2>Cenamatic Designs</h2>
     <div class="gallery">
       <img src="c1.jpg" alt="Cenamatic 1" data-aos="zoom-in">
@@ -422,7 +406,6 @@
       <img src="c3.jpg" alt="Cenamatic 3" data-aos="zoom-in" data-aos-delay="200">
     </div>
   </div>
-
 
   <div class="main-content" data-aos="fade-up">
     <h2>Photo Designs</h2>
@@ -451,17 +434,16 @@
   <div class="main-content" data-aos="fade-up">
     <h2>Invitation Cards Designs</h2>
     <div class="gallery">
-             <img src="i1.jpg" alt="Invitation Cards 1" data-aos="zoom-in">
+      <img src="i1.jpg" alt="Invitation Cards 1" data-aos="zoom-in">
       <img src="i2.jpg" alt="Invitation Cards 2" data-aos="zoom-in" data-aos-delay="100">
       <img src="i3.jpg" alt="Invitation Cards 3" data-aos="zoom-in" data-aos-delay="200">
       <img src="s3.jpg" alt="Invitation Cards 3" data-aos="zoom-in" data-aos-delay="300">
-       <img src="s16.jpg" alt="Invitation Cards 3" data-aos="zoom-in" data-aos-delay="400">
-        <img src="s24.jpg" alt="Invitation Cards 3" data-aos="zoom-in" data-aos-delay="500">
-
+      <img src="s16.jpg" alt="Invitation Cards 3" data-aos="zoom-in" data-aos-delay="400">
+      <img src="s24.jpg" alt="Invitation Cards 3" data-aos="zoom-in" data-aos-delay="500">
     </div>
   </div>
 
-
+  <!-- IMAGE MODAL -->
   <div id="imageModal">
     <span onclick="closeModal()">&times;</span>
     <img id="modalImage" src="">
@@ -469,64 +451,57 @@
 
   <div style="margin-top: 25px; text-align: center;">
       <a href="seemore.html" class="dm-btn">See More</a>
-    </div>
-
-
+  </div>
 
   <div class="dm-section" data-aos="fade-up">
-  <div class="dancing" style="margin-bottom: 15px;">For more Design</div>
-  <a href="contact.html" target="_blank" class="dm-btn">
-     Contact Us
-  </a>
-</div>
+    <div class="dancing" style="margin-bottom: 15px;">For more Design</div>
+    <a href="contact.html" target="_blank" class="dm-btn">Contact Us</a>
+  </div>
 
- 
- <footer>
-  <div class="container">
-    <div>
-      <h3>Pranav Nikam Photography</h3>
-      <p><em>“Turning moments into memories.”</em><br>
-      Visual storytelling through the lens of creativity.<br><br>
-      <strong>Graphic Design</strong>: Logo | Branding | Invitations | Advertisements</p>
-    </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div>
+        <h3>Pranav Nikam Photography</h3>
+        <p><em>“Turning moments into memories.”</em><br>
+        Visual storytelling through the lens of creativity.<br><br>
+        <strong>Graphic Design</strong>: Logo | Branding | Invitations | Advertisements</p>
+      </div>
 
-    <div>
-      <h4>Explore</h4>
-      <a href="index.html">Home</a>
-      <a href="photo.html">Photo Design</a>
-      <a href="logo.html">Logo Design</a>
-      <a href="cenamatic.html">Cenamatic Design</a>
-      <a href="banner.html">Banner</a>
-      <a href="invite.html">Invitation Cards</a>
-      <a href="contact.html">Contact</a>
-    </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="photo.html">Photo Design</a>
+        <a href="logo.html">Logo Design</a>
+        <a href="cenamatic.html">Cenamatic Design</a>
+        <a href="banner.html">Banner</a>
+        <a href="invite.html">Invitation Cards</a>
+        <a href="contact.html">Contact</a>
+      </div>
 
-    <div style="text-align: right;">
-      <h4>Follow Me</h4>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/pranav_nikam_designs?igsh=b2lueWFmNWZ5Znlw&utm_source=qr" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-
-        
-        <a href="https://www.linkedin.com/in/pranav-nikam-7b930b372 " target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
+      <div style="text-align: right;">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/pranav_nikam_designs?igsh=b2lueWFmNWZ5Znlw&utm_source=qr" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/pranav-nikam-7b930b372 " target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="bottom-bar">
-    &copy; 2026 Pranav Nikam Photography | All Rights Reserved
-  </div>
-</footer>
-
+    <div class="bottom-bar">
+      &copy; 2026 Pranav Nikam Photography | All Rights Reserved
+    </div>
+  </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    
+    // IMAGE MODAL
     const images = document.querySelectorAll('.gallery img');
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
@@ -542,12 +517,17 @@
       modal.style.display = "none";
     }
 
-    
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         closeModal();
       }
     });
+
+    // HAMBURGER TOGGLE
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      nav.classList.toggle('mobile-active');
+    }
   </script>
 </body>
 </html>
