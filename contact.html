@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Pranav Nikam Photography</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #1f2029;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    /* Header / Hero Section */
+    .hero-section {
+      background: url('http://www.ivang-design.com/svg-load/portfolio/photo.jpg') no-repeat center center/cover;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .nav-links a:hover {
+      background-color: #866BAF;
+      transform: scale(1.05);
+    }
+
+    .hero-section h1 {
+      font-size: 4vw;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1.5s ease-out;
+    }
+
+    .dancing {
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+      color: white;
+      margin-top: 10px;
+    }
+
+    /* Contact Form Section */
+    .contact-container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 25px 20px;
+      background-color: #2a2b38;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #fff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input, textarea {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      font-size: 14px;
+      outline: none;
+      background-color: #1f2029;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #866BAF;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .submit-btn {
+  background: linear-gradient(90deg, #ff9a9e, #866BAF);
+  color: white;
+  font-weight: 600;
+  font-size: 18px;       /* Slightly larger text */
+  padding: 12px 25px;    /* Increased padding for medium size */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+
+    .submit-btn:hover {
+      background: linear-gradient(90deg, #866BAF, #ff9a9e);
+      transform: scale(1.05);
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #866BAF;
+    }
+
+    select {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  font-size: 14px;
+  outline: none;
+  background-color: #1f2029;
+  color: #fff;
+  transition: 0.3s;
+  appearance: none;  /* hides default arrow */
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #866BAF;
+}
+
+    /* Footer */
+    footer {
+      background-color: #121218;
+      padding: 50px 20px;
+      color: #ccc;
+      font-family: 'Inter', sans-serif;
+    }
+
+    footer .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    footer h3, footer h4 {
+      color: #fff;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 5px 0;
+      display: block;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .social-icons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+      justify-items: end;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: #bbb;
+      font-size: 22px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    footer .bottom-bar {
+      border-top: 1px solid #333;
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  /* Hero Section */
+  .hero-section {
+    height: auto;
+    padding: 90px 20px 40px;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .dancing {
+    font-size: 18px;
+  }
+
+  /* Navigation */
+  .nav-links {
+    position: static;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Contact Container */
+  .contact-container {
+    margin: 30px 15px;
+    padding: 20px 15px;
+  }
+
+  .contact-container h2 {
+    font-size: 22px;
+  }
+
+  /* Form Fields */
+  input, textarea, select {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+  }
+
+  /* Contact Info */
+  .contact-info {
+    font-size: 14px;
+  }
+
+  /* Footer */
+  footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer .container > div {
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-items: center;
+  }
+
+  footer div[style] {
+    text-align: center !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header / Hero Section -->
+  <div class="hero-section" data-aos="fade-in">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="photo.html">Photo Design</a>
+      <a href="logo.html">Logo Design</a>
+      <a href="cenamatic.html">Cenamatic Design</a>
+      <a href="banner.html">Banner</a>
+      <a href="invitation.html">Invitation Cards</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <h1>Pranav Nikam</h1>
+    <div class="dancing">GRAPHIC & CENAMATIC DESIGNS</div>
+  </div>
+
+  <!-- Contact Form Section -->
+  <div class="contact-container" data-aos="fade-up">
+    <h2>Get in Touch</h2>
+  <form action="https://formspree.io/f/xldwvzbb" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+<input type="tel" name="mobile" placeholder="Your Mobile Number" pattern="[0-9]{10}" maxlength="10" required>
+
+  <!-- Dropdown for Design Type -->
+ <select name="design_type" required>
+    <option value="" disabled selected>Select Design Type</option>
+    <option value="Photo Design">Photo Design</option>
+    <option value="Logo Design">Logo Design</option>
+    <option value="Cinematic Design">Cinematic Design</option>
+    <option value="Banner Design">Banner Design</option>
+    <option value="Invitation Cards">Invitation Cards</option>
+    <option value="Other">Other</option>
+  </select>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
+
+    <div class="contact-info">
+      <p>Instagram: <a href="https://www.instagram.com/pranav_nikam_designs?igsh=b2lueWFmNWZ5Znlw&utm_source=qr">Pranav Nikam Designs</a></p>
+      <p>Phone: <a href="tel:+917219764507">+91 7219764507</a></p>
+      
+    </div>
+  </div>
+
+  <!-- Footer -->
+ <footer>
+  <div class="container">
+    <div>
+      <h3>Pranav Nikam Photography</h3>
+      <p><em>“Turning moments into memories.”</em><br>
+      Visual storytelling through the lens of creativity.<br><br>
+      <strong>Graphic Design</strong>: Logo | Branding | Invitations | Advertisements</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="photo.html">Photo Design</a>
+      <a href="logo.html">Logo Design</a>
+      <a href="cenamatic.html">Cenamatic Design</a>
+      <a href="banner.html">Banner</a>
+      <a href="invite.html">Invitation Cards</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div style="text-align: right;">
+      <h4>Follow Me</h4>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/pranav_nikam_designs?igsh=b2lueWFmNWZ5Znlw&utm_source=qr" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- Add LinkedIn URL Here -->
+        <a href="https://www.linkedin.com/in/pranav-nikam-7b930b372 " target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    &copy; 2026 Pranav Nikam Photography | All Rights Reserved
+  </div>
+</footer>
+
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+</body>
+</html>
