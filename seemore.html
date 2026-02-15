@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>See More - Pranav Nikam Photography</title>
+<title>Pranav Nikam Photography - Gallery</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -17,16 +17,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family:'Poppins',sans-serif;
   background:#1f2029;
   color:white;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 /* HERO */
-.hero-section{
+.hero-section {
   background:#1f2029;
   height:50vh;
   display:flex;
@@ -38,16 +38,17 @@ body{
   overflow:hidden;
 }
 
-.nav-links{
-  position:absolute;
-  top:20px;
+.nav-links {
   display:flex;
   gap:20px;
   flex-wrap:wrap;
   justify-content:center;
+  position:absolute;
+  top:20px;
+  transition:0.3s;
 }
 
-.nav-links a{
+.nav-links a {
   color:white;
   text-decoration:none;
   font-weight:500;
@@ -56,12 +57,25 @@ body{
   transition:0.3s;
 }
 
-.nav-links a:hover{
+.nav-links a:hover {
   background:#866BAF;
   transform:scale(1.05);
 }
 
-.hero-section h1{
+/* Hamburger */
+.hamburger {
+  display:none;
+  font-size:28px;
+  color:white;
+  position:absolute;
+  top:20px;
+  right:20px;
+  cursor:pointer;
+  z-index:1001;
+}
+
+/* Hero Text */
+.hero-section h1 {
   font-size:4vw;
   font-weight:900;
   background:linear-gradient(90deg,#ff9a9e,#fad0c4);
@@ -69,24 +83,25 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-.dancing{
+.dancing {
   font-family:'Dancing Script',cursive;
   font-size:24px;
   margin-top:10px;
 }
 
 /* SECTION TITLE */
-.section-title{
+.section-title {
   text-align:center;
   padding-top:50px;
 }
 
-.section-title h2{
+.section-title h2 {
   font-size:36px;
   margin-bottom:10px;
+  position:relative;
 }
 
-.section-title h2::after{
+.section-title h2::after {
   content:"";
   display:block;
   width:60px;
@@ -97,7 +112,7 @@ body{
 }
 
 /* GALLERY */
-.gallery{
+.gallery {
   max-width:1200px;
   margin:auto;
   padding:50px 20px;
@@ -107,7 +122,7 @@ body{
   gap:20px;
 }
 
-.gallery img{
+.gallery img {
   width:100%;
   max-width:300px;
   border-radius:8px;
@@ -116,13 +131,13 @@ body{
   box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
-.gallery img:hover{
+.gallery img:hover {
   transform:scale(1.05);
   box-shadow:0 0 30px rgba(134,107,175,0.6);
 }
 
 /* MODAL */
-#imageModal{
+#imageModal {
   display:none;
   position:fixed;
   inset:0;
@@ -132,29 +147,56 @@ body{
   z-index:999;
 }
 
-#imageModal img{
+#imageModal img {
   max-width:90%;
   max-height:90%;
   border-radius:10px;
 }
 
-#imageModal span{
+#imageModal span {
   position:absolute;
   top:30px;
   right:40px;
   font-size:40px;
   cursor:pointer;
+  font-weight:bold;
+  color:white;
+}
+
+/* DM BUTTON */
+.dm-section {
+  text-align:center;
+  margin:40px 0;
+}
+
+.dm-btn {
+  display:inline-block;
+  background:linear-gradient(135deg,#ff6a00,#ee0979);
+  color:#fff;
+  font-size:20px;
+  font-weight:600;
+  padding:14px 40px;
+  border-radius:50px;
+  text-decoration:none;
+  transition:0.4s;
+  box-shadow:0 8px 20px rgba(238,9,121,0.4);
+}
+
+.dm-btn:hover {
+  background:linear-gradient(135deg,#ee0979,#ff6a00);
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 12px 25px rgba(238,9,121,0.6);
 }
 
 /* FOOTER */
-footer{
+footer {
   background:#121218;
   padding:50px 20px;
   color:#ccc;
   font-family:'Inter',sans-serif;
 }
 
-footer .container{
+footer .container {
   max-width:1200px;
   margin:auto;
   display:flex;
@@ -163,27 +205,23 @@ footer .container{
   gap:40px;
 }
 
-footer h3, footer h4{color:#fff;}
+footer h3, footer h4 {color:#fff;}
 
-footer a{
+footer a {
   color:#ccc;
   text-decoration:none;
   display:block;
   margin:5px 0;
 }
 
-footer a:hover{color:white;}
+footer a:hover {color:white;}
 
-.social-icons{
+.social-icons {
   display:flex;
   gap:15px;
 }
 
-.social-icons a{
-  font-size:22px;
-}
-
-.bottom-bar{
+.bottom-bar {
   border-top:1px solid #333;
   margin-top:30px;
   padding-top:20px;
@@ -192,38 +230,26 @@ footer a:hover{color:white;}
   color:#777;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 @media(max-width:768px){
+  .hamburger { display:block; }
 
-  .hero-section{
-    height:auto;
-    padding:90px 20px 50px;
+  .nav-links { 
+    display:none; 
+    flex-direction:column; 
+    gap:10px; 
+    background:#1f2029;
+    position:absolute;
+    top:70px;
+    right:20px;
+    padding:10px;
+    border-radius:8px;
   }
+  .nav-links.active { display:flex; }
 
-  .nav-links{
-    position:static;
-    flex-direction:column;
-    gap:10px;
-    margin-bottom:20px;
-  }
+  .gallery img { max-width:100%; }
 
-  .nav-links a{
-    width:100%;
-    text-align:center;
-  }
-
-  .gallery img{
-    max-width:100%;
-  }
-
-  footer .container{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .social-icons{
-    justify-content:center;
-  }
+  footer .container { flex-direction:column; text-align:center; }
 }
 </style>
 </head>
@@ -231,6 +257,7 @@ footer a:hover{color:white;}
 
 <!-- HERO -->
 <div class="hero-section" data-aos="fade-in">
+  <div class="hamburger"><i class="fas fa-bars"></i></div>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="photo.html">Photo Design</a>
@@ -242,17 +269,18 @@ footer a:hover{color:white;}
   </div>
 
   <h1>Pranav Nikam</h1>
-  <div class="dancing">MORE CREATIVE DESIGNS</div>
+  <div class="dancing">GRAPHIC & CENAMATIC DESIGNS</div>
 </div>
 
 <!-- TITLE -->
 <div class="section-title" data-aos="fade-up">
-  <h2>More Gallery Designs</h2>
+  <h2>Gallery Designs</h2>
 </div>
 
 <!-- GALLERY -->
 <div class="gallery">
-  <img src="s1.jpg" data-aos="zoom-in">
+  <!-- Example images, replace with your files -->
+    <img src="s1.jpg" data-aos="zoom-in">
 <img src="s2.jpg" data-aos="zoom-in" data-aos-delay="100">
 <img src="s3.jpg" data-aos="zoom-in" data-aos-delay="200">
 <img src="s03.jpg" data-aos="zoom-in" data-aos-delay="300">
@@ -299,21 +327,24 @@ footer a:hover{color:white;}
 <img src="s25.jpg" data-aos="zoom-in">
 </div>
 
-
 <!-- MODAL -->
 <div id="imageModal">
   <span onclick="closeModal()">&times;</span>
   <img id="modalImage">
 </div>
 
+<!-- DM BUTTON -->
+<div class="dm-section" data-aos="fade-up">
+  <div class="dancing" style="margin-bottom:15px;">For More Designs</div>
+  <a href="contact.html" target="_blank" class="dm-btn">Contact Us</a>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
-
     <div>
       <h3>Pranav Nikam Photography</h3>
-      <p><em>“Turning moments into memories.”</em><br>
-      Graphic Design: Logo | Branding | Invitations | Advertisements</p>
+      <p><em>“Turning moments into memories.”</em><br>Graphic Design: Logo | Branding | Invitations | Advertisements</p>
     </div>
 
     <div>
@@ -330,20 +361,13 @@ footer a:hover{color:white;}
     <div>
       <h4>Follow Me</h4>
       <div class="social-icons">
-        <a href="https://www.instagram.com/pranav_nikam_designs?igsh=b2lueWFmNWZ5Znlw&utm_source=qr" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/pranav-nikam-7b930b372" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
+        <a href="https://www.instagram.com/pranav_nikam_designs" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/pranav-nikam-7b930b372" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-
   </div>
 
-  <div class="bottom-bar">
-    &copy; 2026 Pranav Nikam Photography | All Rights Reserved
-  </div>
+  <div class="bottom-bar">&copy; 2026 Pranav Nikam Photography | All Rights Reserved</div>
 </footer>
 
 <!-- JS -->
@@ -351,26 +375,27 @@ footer a:hover{color:white;}
 <script>
 AOS.init({duration:1000,once:true});
 
+// Hamburger toggle
+document.querySelector('.hamburger').addEventListener('click', ()=>{
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Modal zoom
 const modal=document.getElementById("imageModal");
 const modalImg=document.getElementById("modalImage");
 
 document.querySelectorAll(".gallery img").forEach(img=>{
-  img.addEventListener("click",()=>{
+  img.addEventListener("click", ()=>{
     modal.style.display="flex";
     modalImg.src=img.src;
   });
 });
 
-function closeModal(){
-  modal.style.display="none";
-}
+function closeModal(){ modal.style.display="none"; }
 
-modal.addEventListener("click",(e)=>{
-  if(e.target===modal){
-    closeModal();
-  }
+modal.addEventListener("click", (e)=>{
+  if(e.target===modal){ closeModal(); }
 });
 </script>
-
 </body>
 </html>
