@@ -23,6 +23,7 @@
       scroll-behavior: smooth;
     }
 
+    /* HERO SECTION */
     .hero-section {
       background: url('http://www.ivang-design.com/svg-load/portfolio/photo.jpg') no-repeat center center/cover;
       height: 50vh;
@@ -34,6 +35,7 @@
       text-align: center;
     }
 
+    /* NAVIGATION */
     .nav-links {
       position: absolute;
       top: 20px;
@@ -41,6 +43,8 @@
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      transition: max-height 0.4s ease-in-out;
+      overflow: hidden;
     }
 
     .nav-links a {
@@ -57,14 +61,26 @@
       transform: scale(1.05);
     }
 
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger:hover { transform: scale(1.1); }
+
     .hero-section h1 {
       font-size: 4vw;
       font-weight: 900;
       background: linear-gradient(90deg, #ff9a9e, #fad0c4);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
       animation: fadeInDown 1.5s ease-out;
     }
 
@@ -75,6 +91,7 @@
       animation: fadeInUp 2s ease-out;
     }
 
+    /* MAIN CONTENT */
     .main-content {
       padding: 50px 20px;
       max-width: 1000px;
@@ -98,6 +115,7 @@
       border-radius: 2px;
     }
 
+    /* GALLERY */
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -120,7 +138,7 @@
       box-shadow: 0 0 30px rgba(134, 107, 175, 0.6);
     }
 
-    /* Zoom Modal */
+    /* MODAL */
     #imageModal {
       display: none;
       position: fixed;
@@ -149,7 +167,8 @@
       cursor: pointer;
       font-weight: bold;
     }
-     /* DM Button */
+
+    /* DM Button */
     .dm-section {
       text-align: center;
       margin: 40px 0;
@@ -168,17 +187,13 @@
       box-shadow: 0 8px 20px rgba(238, 9, 121, 0.4);
     }
 
-    .dm-btn i {
-      margin-right: 10px;
-      font-size: 22px;
-    }
-
     .dm-btn:hover {
       background: linear-gradient(135deg, #ee0979, #ff6a00);
       transform: translateY(-4px) scale(1.05);
       box-shadow: 0 12px 25px rgba(238, 9, 121, 0.6);
     }
 
+    /* FOOTER */
     footer {
       background-color: #121218;
       padding: 50px 20px;
@@ -196,44 +211,17 @@
       gap: 40px;
     }
 
-    footer h3, footer h4 {
-      color: #fff;
+    footer h3, footer h4 { color: #fff; }
+    footer a { color: #ccc; text-decoration: none; margin: 5px 0; display: block; transition: 0.3s; }
+    footer a:hover { color: #fff; }
+
+    .social-icons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+      justify-items: end;
+      margin-top: 10px;
     }
-
-    footer a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 5px 0;
-      display: block;
-      transition: 0.3s;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    .social-follow {
-  text-align: right;
-}
-
-.social-icons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 icons per row */
-  gap: 10px 20px; /* vertical and horizontal spacing */
-  justify-items: end; /* align items to the right */
-  margin-top: 10px;
-}
-
-.social-icons a {
-  color: #bbb;
-  font-size: 22px;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  color: #fff;
-}
-
 
     footer .bottom-bar {
       border-top: 1px solid #333;
@@ -244,99 +232,49 @@
       color: #777;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* ANIMATIONS */
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width:768px){
+      .hero-section { height:auto; padding:90px 20px 50px; }
+      .hero-section h1 { font-size:1.8rem; }
+      .dancing { font-size:18px; }
+
+      /* Hamburger */
+      .hamburger { display:block; }
+
+      .nav-links {
+        position: static;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(31,32,41,0.95);
+        border-radius: 8px;
+        width: 90%;
+        margin: 0 auto 25px;
+      }
+      .nav-links.mobile-active { max-height: 500px; padding:10px 0; }
+
+      .nav-links a { width: 100%; text-align: center; }
+
+      .main-content h2 { font-size: 1.6rem; }
+      .gallery { flex-direction: column; align-items: center; }
+      .gallery img { max-width:95%; }
+      #imageModal span { top:20px; right:20px; font-size:28px; }
+      .dm-btn { font-size:16px; padding:12px 25px; }
+
+      footer .container { flex-direction: column; text-align:center; }
+      .social-icons { justify-items:center; }
     }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ================= MOBILE RESPONSIVE ================= */
-@media (max-width: 768px) {
-
-  /* Hero Section */
-  .hero-section {
-    height: auto;
-    padding: 90px 20px 50px;
-  }
-
-  .hero-section h1 {
-    font-size: 1.8rem;
-  }
-
-  .dancing {
-    font-size: 18px;
-  }
-
-  /* Navigation */
-  .nav-links {
-    position: static;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 25px;
-  }
-
-  .nav-links a {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Section Titles */
-  .main-content h2 {
-    font-size: 1.6rem;
-  }
-
-  /* Gallery */
-  .gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gallery img {
-    max-width: 95%;
-  }
-
-  /* Modal Close Button */
-  #imageModal span {
-    top: 20px;
-    right: 20px;
-    font-size: 28px;
-  }
-
-  /* Buttons */
-  .dm-btn {
-    font-size: 16px;
-    padding: 12px 25px;
-  }
-
-  /* Footer */
-  footer .container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  footer .container > div {
-    width: 100%;
-  }
-
-  .social-icons {
-    justify-items: center;
-  }
-
-  .social-follow {
-    text-align: center;
-  }
-}
-
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <div class="hero-section" data-aos="fade-in">
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="photo.html">Photo Design</a>
@@ -347,121 +285,82 @@
       <a href="contact.html">Contact</a>
     </div>
     <h1>Pranav Nikam</h1>
-    <div class="dancing">>GRAPHIC & CENAMATIC DESIGNS</div>
+    <div class="dancing">GRAPHIC & CENAMATIC DESIGNS</div>
   </div>
 
-  
-  <!-- Main Logo Content -->
+  <!-- Main Content -->
   <div class="main-content" data-aos="fade-up">
     <h2>Cenamatic Designs</h2>
     <div class="gallery">
       <img src="c1.jpg" alt="Logo 1" data-aos="zoom-in">
       <img src="c2.jpg" alt="Logo 2" data-aos="zoom-in" data-aos-delay="100">
       <img src="c3.jpg" alt="Logo 3" data-aos="zoom-in" data-aos-delay="200">
-      
     </div>
   </div>
 
-  <!-- Modal for Zoom -->
+  <!-- Modal -->
   <div id="imageModal">
     <span onclick="closeModal()">&times;</span>
     <img id="modalImage" src="">
   </div>
 
-  <div style="margin-top: 25px; text-align: center;">
-      <a href="seemore.html" class="dm-btn">See More</a>
-    </div>
-
-
   <div class="dm-section" data-aos="fade-up">
-  <div class="dancing" style="margin-bottom: 15px;">For more Design</div>
-  <a href="contact.html" target="_blank" class="dm-btn">
-     Contact Us
-  </a>
-</div>
+    <div class="dancing" style="margin-bottom: 15px;">For more Design</div>
+    <a href="contact.html" target="_blank" class="dm-btn">Contact Us</a>
+  </div>
 
   <!-- Footer -->
- <footer>
-  <div class="container">
-    <div>
-      <h3>Pranav Nikam Photography</h3>
-      <p><em>“Turning moments into memories.”</em><br>
-      Visual storytelling through the lens of creativity.<br><br>
-      <strong>Graphic Design</strong>: Logo | Branding | Invitations | Advertisements</p>
-    </div>
+  <footer>
+    <div class="container">
+      <div>
+        <h3>Pranav Nikam Photography</h3>
+        <p><em>“Turning moments into memories.”</em><br>
+        Visual storytelling through the lens of creativity.<br><br>
+        <strong>Graphic Design</strong>: Logo | Branding | Invitations | Advertisements</p>
+      </div>
 
-    <div>
-      <h4>Explore</h4>
-      <a href="index.html">Home</a>
-      <a href="photo.html">Photo Design</a>
-      <a href="logo.html">Logo Design</a>
-      <a href="cenamatic.html">Cenamatic Design</a>
-      <a href="banner.html">Banner</a>
-      <a href="invite.html">Invitation Cards</a>
-      <a href="contact.html">Contact</a>
-    </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="photo.html">Photo Design</a>
+        <a href="logo.html">Logo Design</a>
+        <a href="cenamatic.html">Cenamatic Design</a>
+        <a href="banner.html">Banner</a>
+        <a href="invite.html">Invitation Cards</a>
+        <a href="contact.html">Contact</a>
+      </div>
 
-    <div style="text-align: right;">
-      <h4>Follow Me</h4>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/pranav_nikam_designs?igsh=b2lueWFmNWZ5Znlw&utm_source=qr" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-
-        <!-- Add LinkedIn URL Here -->
-        <a href="https://www.linkedin.com/in/pranav-nikam-7b930b372 " target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
+      <div style="text-align: right;">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/pranav_nikam_designs" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/pranav-nikam-7b930b372" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="bottom-bar">
-    &copy; 2026 Pranav Nikam Photography | All Rights Reserved
-  </div>
-</footer>
-  <!-- AOS Animation Script -->
+    <div class="bottom-bar">&copy; 2026 Pranav Nikam Photography | All Rights Reserved</div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    AOS.init({ duration: 1000, once: true });
 
-
-   const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      spaceBetween: 30,
-      centeredSlides: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      slidesPerView: 'auto',
-      effect: 'coverflow',
-      coverflowEffect: {
-        rotate: 30,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-    });
-
-    // Zoom Image Script
+    // Zoom Modal
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
-    const images = document.querySelectorAll(".gallery img");
-
-    images.forEach(img => {
+    document.querySelectorAll(".gallery img").forEach(img => {
       img.addEventListener("click", () => {
         modal.style.display = "flex";
         modalImg.src = img.src;
       });
     });
+    function closeModal() { modal.style.display = "none"; }
 
-    function closeModal() {
-      modal.style.display = "none";
+    // Hamburger toggle
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('mobile-active');
     }
   </script>
 </body>
